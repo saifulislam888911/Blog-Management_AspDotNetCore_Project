@@ -1,0 +1,2 @@
+# Blog-Management_AspDotNetCore_Project
+Razor_AspDotNetCore_EntityFramework_MSSQL_WebApp
