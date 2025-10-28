@@ -9,11 +9,13 @@ namespace Blog.Web.Pages.Admin.Blogs
     {
         public List<BlogPost> BlogPosts { get; set; }
 
+
         private readonly BlogDbContext _blogDbContext;
         public ListModel(BlogDbContext blogDbContext)
         {
             this._blogDbContext = blogDbContext;
         }
+
 
         public void OnGet()
         {

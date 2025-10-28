@@ -10,16 +10,19 @@ namespace Blog.Web.Pages.Admin.Blogs
         [BindProperty]
         public BlogPost BlogPost { get; set; }
 
+
         private readonly BlogDbContext _blogDbContext;
         public EditModel(BlogDbContext blogDbContext)
         {
             this._blogDbContext = blogDbContext;
         }
 
+
         public void OnGet(Guid id)
         {
             BlogPost = _blogDbContext.BlogPosts.Find(id);
         }
+
 
         public IActionResult OnPostEdit()
         {
@@ -42,6 +45,7 @@ namespace Blog.Web.Pages.Admin.Blogs
 
             return RedirectToPage("/Admin/Blogs/List");
         }
+
 
         public IActionResult OnPostDelete()
         {

@@ -11,15 +11,18 @@ namespace Blog.Web.Pages.Admin.Blogs
         [BindProperty]
         public AddBlogPost AddBlogPostRequest { get; set; }
 
+
         private readonly BlogDbContext _blogDbContext;
         public AddModel(BlogDbContext blogDbContext)
         {
             this._blogDbContext = blogDbContext;
         }
 
+
         public void OnGet()
         {
         }
+
 
         public IActionResult OnPost()
         {
