@@ -18,10 +18,8 @@ Version :
 Helped From : Youtube : Sameer Saini, Self-Practice, Self-Study.
 
 
-# Branch : ("main")
-Main : Stable Release & Version Update (For publishing new updated versions). 
-Development (DevWithNotes-01) : For Updating new features. Always Upto Date. Clean Codes (Delete Comments & Notes).
-DevWithNotes : For Pushing working codes alongside with Comments & Notes. Always Upto Date.
+# Branch : ("Development-2")
+Development (DevWithNotes-00) : For Updating new features. Always Upto Date. Clean Codes (Delete Comments & Notes).
 
 
 # Youtube : Sameer Saini :
