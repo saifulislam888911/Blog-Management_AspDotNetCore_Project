@@ -16,14 +16,14 @@ namespace Blog.Web.Pages.Admin.Blogs
             this._blogDbContext = blogDbContext;
         }
 
-        public void OnGet(Guid id)
+        public async Task OnGet(Guid id)
         {
-            BlogPost = _blogDbContext.BlogPosts.Find(id);
+            BlogPost = await _blogDbContext.BlogPosts.FindAsync(id);
         }
 
-        public IActionResult OnPostEdit()
+        public async Task<IActionResult> OnPostEdit()
         {
-            var existingBlogPost = _blogDbContext.BlogPosts.Find(BlogPost.Id);
+            var existingBlogPost = await _blogDbContext.BlogPosts.FindAsync(BlogPost.Id);
 
             if (existingBlogPost != null)
             {
@@ -38,19 +38,19 @@ namespace Blog.Web.Pages.Admin.Blogs
                 existingBlogPost.Visible = BlogPost.Visible;
             }
 
-            _blogDbContext.SaveChanges();
+            await _blogDbContext.SaveChangesAsync();
 
             return RedirectToPage("/Admin/Blogs/List");
         }
 
-        public IActionResult OnPostDelete()
+        public async Task<IActionResult> OnPostDelete()
         {
-            var existingBlogPost = _blogDbContext.BlogPosts.Find(BlogPost.Id);
+            var existingBlogPost = await _blogDbContext.BlogPosts.FindAsync(BlogPost.Id);
 
             if (existingBlogPost != null)
             {
                 _blogDbContext.BlogPosts.Remove(existingBlogPost);
-                _blogDbContext.SaveChanges();
+                await _blogDbContext.SaveChangesAsync();
 
                 return RedirectToPage("/Admin/Blogs/List");
             }
