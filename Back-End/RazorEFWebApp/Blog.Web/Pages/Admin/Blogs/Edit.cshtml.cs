@@ -17,16 +17,24 @@ namespace Blog.Web.Pages.Admin.Blogs
             this._blogDbContext = blogDbContext;
         }
 
+<<<<<<< HEAD
 
         public void OnGet(Guid id)
+=======
+        public async Task OnGet(Guid id)
+>>>>>>> remotes/origin/DevWithNotes-02
         {
-            BlogPost = _blogDbContext.BlogPosts.Find(id);
+            BlogPost = await _blogDbContext.BlogPosts.FindAsync(id);
         }
 
+<<<<<<< HEAD
 
         public IActionResult OnPostEdit()
+=======
+        public async Task<IActionResult> OnPostEdit()
+>>>>>>> remotes/origin/DevWithNotes-02
         {
-            var existingBlogPost = _blogDbContext.BlogPosts.Find(BlogPost.Id);
+            var existingBlogPost = await _blogDbContext.BlogPosts.FindAsync(BlogPost.Id);
 
             if (existingBlogPost != null)
             {
@@ -41,20 +49,24 @@ namespace Blog.Web.Pages.Admin.Blogs
                 existingBlogPost.Visible = BlogPost.Visible;
             }
 
-            _blogDbContext.SaveChanges();
+            await _blogDbContext.SaveChangesAsync();
 
             return RedirectToPage("/Admin/Blogs/List");
         }
 
+<<<<<<< HEAD
 
         public IActionResult OnPostDelete()
+=======
+        public async Task<IActionResult> OnPostDelete()
+>>>>>>> remotes/origin/DevWithNotes-02
         {
-            var existingBlogPost = _blogDbContext.BlogPosts.Find(BlogPost.Id);
+            var existingBlogPost = await _blogDbContext.BlogPosts.FindAsync(BlogPost.Id);
 
             if (existingBlogPost != null)
             {
                 _blogDbContext.BlogPosts.Remove(existingBlogPost);
-                _blogDbContext.SaveChanges();
+                await _blogDbContext.SaveChangesAsync();
 
                 return RedirectToPage("/Admin/Blogs/List");
             }

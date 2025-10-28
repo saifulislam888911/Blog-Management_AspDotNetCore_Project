@@ -23,8 +23,12 @@ namespace Blog.Web.Pages.Admin.Blogs
         {
         }
 
+<<<<<<< HEAD
 
         public IActionResult OnPost()
+=======
+        public async Task<IActionResult> OnPost()
+>>>>>>> remotes/origin/DevWithNotes-02
         {
             var blogPost = new BlogPost()
             {
@@ -38,9 +42,9 @@ namespace Blog.Web.Pages.Admin.Blogs
                 Author = AddBlogPostRequest.Author,
                 Visible = AddBlogPostRequest.Visible
             };
-            
-            _blogDbContext.BlogPosts.Add(blogPost);
-            _blogDbContext.SaveChanges();
+
+            await _blogDbContext.BlogPosts.AddAsync(blogPost);
+            await _blogDbContext.SaveChangesAsync();
 
             return RedirectToPage("/Admin/Blogs/List");
         }
