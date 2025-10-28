@@ -3,7 +3,7 @@ Summary :
 - Back-End : C#, ASP.NET Core, EntityFramework.
 - Front-End : Razor.
 - Database : MSSQL.
-- Type : Web Appliation.
+- Type : Web Application.
 
 
 Version :
@@ -19,7 +19,7 @@ Helped From : Youtube : Sameer Saini, Self-Practice, Self-Study.
 
 
 # Branch : ("Development-1")
-Development (DevWithNotes-00) : For Updating new features. Always Upto Date. Clean Codes (Delete Comments & Notes).
+Development (DevWithNotes-01) : For Updating new features. Always Upto Date. Clean Codes (Delete Comments & Notes).
 
 
 # Youtube : Sameer Saini :
