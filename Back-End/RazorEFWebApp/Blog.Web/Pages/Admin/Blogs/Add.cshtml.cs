@@ -1,6 +1,7 @@
 using Blog.Web.Data;
 using Blog.Web.Models.Domain;
 using Blog.Web.Models.ViewModels;
+using Blog.Web.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -11,10 +12,11 @@ namespace Blog.Web.Pages.Admin.Blogs
         [BindProperty]
         public AddBlogPost AddBlogPostRequest { get; set; }
 
-        private readonly BlogDbContext _blogDbContext;
-        public AddModel(BlogDbContext blogDbContext)
+        private readonly IBlogPostRepository _blogPostRepository;
+
+        public AddModel(IBlogPostRepository blogPostRepository)
         {
-            this._blogDbContext = blogDbContext;
+            _blogPostRepository = blogPostRepository;
         }
 
         public void OnGet()
@@ -35,9 +37,8 @@ namespace Blog.Web.Pages.Admin.Blogs
                 Author = AddBlogPostRequest.Author,
                 Visible = AddBlogPostRequest.Visible
             };
-            
-            //await _blogDbContext.BlogPosts.AddAsync(blogPost);
-            //await _blogDbContext.SaveChangesAsync();
+
+            await _blogPostRepository.AddAsync(blogPost);
 
             return RedirectToPage("/Admin/Blogs/List");
         }
