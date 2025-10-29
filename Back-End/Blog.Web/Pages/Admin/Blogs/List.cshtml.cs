@@ -17,12 +17,8 @@ namespace Blog.Web.Pages.Admin.Blogs
             this._blogDbContext = blogDbContext;
         }
 
-<<<<<<< HEAD
 
-        public void OnGet()
-=======
         public async Task OnGet()
->>>>>>> remotes/origin/DevWithNotes-02
         {
              BlogPosts = await _blogDbContext.BlogPosts.ToListAsync();
         }

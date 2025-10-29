@@ -17,22 +17,14 @@ namespace Blog.Web.Pages.Admin.Blogs
             this._blogDbContext = blogDbContext;
         }
 
-<<<<<<< HEAD
 
-        public void OnGet(Guid id)
-=======
         public async Task OnGet(Guid id)
->>>>>>> remotes/origin/DevWithNotes-02
         {
             BlogPost = await _blogDbContext.BlogPosts.FindAsync(id);
         }
 
-<<<<<<< HEAD
 
-        public IActionResult OnPostEdit()
-=======
         public async Task<IActionResult> OnPostEdit()
->>>>>>> remotes/origin/DevWithNotes-02
         {
             var existingBlogPost = await _blogDbContext.BlogPosts.FindAsync(BlogPost.Id);
 
@@ -54,12 +46,8 @@ namespace Blog.Web.Pages.Admin.Blogs
             return RedirectToPage("/Admin/Blogs/List");
         }
 
-<<<<<<< HEAD
 
-        public IActionResult OnPostDelete()
-=======
         public async Task<IActionResult> OnPostDelete()
->>>>>>> remotes/origin/DevWithNotes-02
         {
             var existingBlogPost = await _blogDbContext.BlogPosts.FindAsync(BlogPost.Id);
 
