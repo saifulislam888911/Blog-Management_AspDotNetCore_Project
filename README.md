@@ -25,6 +25,7 @@ DevWithNotes : For Pushing working codes alongside with Comments & Notes. Always
 # Youtube : Sameer Saini :
 Title : ASP.NET 6 Razor Pages CRUD - .NET 6 Razor Pages Tutorial - ASP.NET Core Web App ;
 Link : https://youtu.be/3gthVb11Juc?si=HhhB_hwh0VIba1Jp ;
+Study : Self-Practice, Self-Study ;
 
 
 # Website :
