@@ -35,9 +35,9 @@ namespace Blog.Web.Pages.Admin.Blogs
                 Author = AddBlogPostRequest.Author,
                 Visible = AddBlogPostRequest.Visible
             };
-
-            await _blogDbContext.BlogPosts.AddAsync(blogPost);
-            await _blogDbContext.SaveChangesAsync();
+            
+            //await _blogDbContext.BlogPosts.AddAsync(blogPost);
+            //await _blogDbContext.SaveChangesAsync();
 
             return RedirectToPage("/Admin/Blogs/List");
         }

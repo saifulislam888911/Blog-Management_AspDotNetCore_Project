@@ -18,7 +18,7 @@ namespace Blog.Web.Pages.Admin.Blogs
 
         public async Task OnGet()
         {
-             BlogPosts = await _blogDbContext.BlogPosts.ToListAsync();
+            // BlogPosts = await _blogDbContext.BlogPosts.ToListAsync();
         }
     }
 }

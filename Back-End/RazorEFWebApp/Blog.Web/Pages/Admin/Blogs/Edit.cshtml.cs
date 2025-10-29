@@ -18,7 +18,7 @@ namespace Blog.Web.Pages.Admin.Blogs
 
         public async Task OnGet(Guid id)
         {
-            BlogPost = await _blogDbContext.BlogPosts.FindAsync(id);
+            //BlogPost = await _blogDbContext.BlogPosts.FindAsync(id);
         }
 
         public async Task<IActionResult> OnPostEdit()
