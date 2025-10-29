@@ -7,11 +7,11 @@ namespace Blog.Web.Repositories
     public class BlogPostRepository : IBlogPostRepository
     {
         private readonly BlogDbContext _blogDbContext;
+
         public BlogPostRepository(BlogDbContext blogDbContext)
         {
             this._blogDbContext = blogDbContext;
         }
-
 
         public async Task<BlogPost> AddAsync(BlogPost blogPost)
         {
@@ -21,6 +21,20 @@ namespace Blog.Web.Repositories
             return blogPost;
         }
 
+        public async Task<bool> DeleteAsync(Guid id)
+        {
+            var existingBlogPost = await _blogDbContext.BlogPosts.FindAsync(id);
+
+            if (existingBlogPost != null)
+            {
+                _blogDbContext.BlogPosts.Remove(existingBlogPost);
+                await _blogDbContext.SaveChangesAsync();
+
+                return true;
+            }
+
+            return false;
+        }
 
         public async Task<IEnumerable<BlogPost>> GetAllAsync()
         {
@@ -31,7 +45,6 @@ namespace Blog.Web.Repositories
         {
             return await _blogDbContext.BlogPosts.FindAsync(id);
         }
-
 
         public async Task<BlogPost> UpdateAsync(BlogPost blogPost)
         {
@@ -53,22 +66,6 @@ namespace Blog.Web.Repositories
             await _blogDbContext.SaveChangesAsync();
 
             return existingBlogPost;
-        }
-
-
-        public async Task<bool> DeleteAsync(Guid id)
-        {
-            var existingBlogPost = await _blogDbContext.BlogPosts.FindAsync(id);
-
-            if (existingBlogPost != null)
-            {
-                _blogDbContext.BlogPosts.Remove(existingBlogPost);
-                await _blogDbContext.SaveChangesAsync();
-
-                return true;
-            }
-
-            return false;
         }
     }
 }

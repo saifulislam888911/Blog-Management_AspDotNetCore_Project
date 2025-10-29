@@ -7,12 +7,12 @@
 # --------------------
 #Short, crucial explanation (so others can run your project):
 #	Do NOT ignore:
-#		-	.sln, .csproj, .fsproj, .xproj — these must be committed.
-#		-	appsettings.json — commit a non-sensitive default appsettings.json (or appsettings.Sample.json), so others have defaults. Ignore only development/local secrets files.
-#		-	Migrations/ (EF Core) — commit migrations (so dotnet ef database update works).
+#		-	.sln, .csproj, .fsproj, .xproj — commit project files, these must be committed.
+#		-	appsettings.json — commit a non-sensitive default appsettings.json (or appsettings.Sample.json), so others have defaults. Ignore only development/local secrets files.(commit non-sensitive defaults or appsettings.Sample.json)
+#		-	Migrations/ (EF Core) — commit migrations (so 'dotnet ef database update' works).
 #		-	package-lock.json / yarn.lock / pnpm-lock.yaml — commit lockfiles so front-end installs are reproducible.
-#		-	Dockerfile / docker-compose.yml — commit so Docker-based runs work.
-#	Use dotnet user-secrets for per-developer secrets instead of committing secrets files.
+#		-	Dockerfile / docker-compose.yml — commit so Docker-based runs work if you use Docker.
+#	Use 'dotnet user-secrets' for per-developer secrets instead of committing secrets files.
 #	If your project needs a local DB file to run (rare for production), provide a sample DB or scripts and include instructions in README — don't commit real DB files.
 # --------------------
 
@@ -21,7 +21,9 @@
 # --------------------
 # IDEs & Editors
 # --------------------
-# Visual Studio
+
+# Visual Studio :
+-----------------
 .vs/
 *.suo
 *.user
@@ -29,19 +31,26 @@
 *.sln.docstates
 *.VC.db
 
-# Visual Studio Code
+
+# Visual Studio Code : (ignore workspace storage but keep intentional shared files)
+-----------------------------------------------------------------------------------
 .vscode/*
-# but allow workspace settings that you intentionally share:
+# VS Code : Allowing workspace settings that you intentionally share :
+----------------------------------------------------------------------
 # !.vscode/extensions.json
 # !.vscode/settings.json
 # !.vscode/tasks.json
 # !.vscode/launch.json
 
-# Rider / IntelliJ
+
+# Rider / IntelliJ :
+--------------------
 .idea/
 *.sln.iml
 
-# ReSharper
+
+# ReSharper :
+-------------
 _ReSharper*/
 *.[Rr]e[Ss]harper
 
@@ -62,17 +71,22 @@ Release/
 publish/
 artifacts/
 
-# MSBuild binary & structured logs
+
+# MSBuild binary & structured logs :
+------------------------------------
 *.binlog
 [Bb]uild[Ll]og.*
 
-# Temporary build files and packages
+
+# Temporary build files and packages (Temporary binaries) :
+-----------------------------------------------------------
 *.dll
 *.exe
 *.pdb
 *.mdb
 *.appx
 *.appxupload
+
 
 # --------------------
 # NuGet / packages
@@ -95,33 +109,46 @@ project.assets.json
 # --------------------
 # ASP.NET / Web specifics
 # --------------------
-# IIS Express & local host config
+
+# IIS Express & local host config :
+-----------------------------------
 /.vs/**/applicationhost.config
 IISExpress/
 iisexpress/
 
-# Scaffolding
+
+# Scaffolding :
+---------------
 ScaffoldingReadMe.txt
 
-# Common frontend build outputs (if you build frontend into wwwroot)
-wwwroot/lib/
-wwwroot/dist/
-wwwroot/build/
 
-# If your project intentionally vendors libs into wwwroot, remove above lines.
+# Common frontend build outputs (if you build frontend into wwwroot) :
+----------------------------------------------------------------------
+# NOTE: Do NOT ignore wwwroot static assets (CSS, JS, vendor files)
+# If you prefer to rebuild frontend at deploy time, uncomment the lines
+# below and ensure README contains build steps (npm install && npm run build).
+# (If your project intentionally vendors libs into wwwroot, remove blow lines.)
+-------------------------------------------------------------------------------
+# wwwroot/lib/
+# wwwroot/dist/
+# wwwroot/build/
+
 
 # --------------------
 # Configuration & secrets (DO NOT commit secrets)
 # --------------------
-# Ignore local/dev-only appsettings and secrets
+# Ignore Local/Dev-only appsettings, configuration and secrets :
 #-- (Check Before Stage and Commit)
+----------------------------------------------------------------
 appsettings.Development.json
 *.Development.json
 secrets.json
 .env
-.env.*       # .env.local, .env.development, etc.
+.env.*       
+# (.env.local, .env.development, etc.)
 
-# Keep a sample config file in repo for users to copy & edit:
+
+# NOTE: Keep an appsettings.Sample.json / Keep a sample config file in repo for users to copy/rename and edit.
 # commit appsettings.Sample.json (NOT ignored)
 # (appsettings.json non-sensitive হলে commit করতে পারো, but keep dev/local secrets out)
 
@@ -129,10 +156,12 @@ secrets.json
 
 
 
-# --------------------
-# Keep Migrations tracked!
-# --------------------
-# EF Core Migrations should be tracked so other developers can apply them.
+# ---------------------------------
+# Keep EF Core Migrations tracked :
+# ---------------------------------
+# NOTE: EF Core Migrations should be tracked so other developers can apply them.
+# Ensure any folder named "Migrations" and its content are NOT ignored.
+--------------------------------------------------------------------------------
 !**/Migrations/**
 
 # --------------------
@@ -144,7 +173,7 @@ secrets.json
 *.db
 *.db-journal
 
-# If your project requires a local DB file to run, commit a sample or migration instead.
+# If your project requires a local DB file to run / first run, commit / provide a sample or script or migration instead.
 
 
 
@@ -176,14 +205,14 @@ logs/
 *.tmp
 *.temp
 
-# OS files
-----------
+# OS files :
+------------
 Thumbs.db
 Desktop.ini
 .DS_Store
 
-# Editor swapfiles
-------------------
+# Editor swapfiles :
+--------------------
 *.swp
 *.swo
 
@@ -201,13 +230,13 @@ yarn-error.log*
 dist/
 build/
 
-# Lockfiles: typically commit lockfiles (package-lock.json, yarn.lock, pnpm-lock.yaml)
+# Lockfiles: typically commit lockfiles (package-lock.json, yarn.lock, pnpm-lock.yaml ...etc should usually be committed.)
 # so they are intentionally NOT ignored.
 
 
 
 # --------------------
-# Docker / Containers
+# Docker / Containers (ignore local overrides)
 # --------------------
 docker-compose.override.yml
 docker-compose.*.yml
