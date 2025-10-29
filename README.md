@@ -19,12 +19,13 @@ Helped From : Youtube : Sameer Saini, Self-Practice, Self-Study.
 
 
 # Branch : ("Development-3")
-Development (DevWithNotes-00) : For Updating new features. Always Upto Date. Clean Codes (Delete Comments & Notes).
+Development (DevWithNotes-03, DevWithNotes-04) : For Updating new features. Always Upto Date. Clean Codes (Delete Comments & Notes).
 
 
 # Youtube : Sameer Saini :
 Title : ASP.NET 6 Razor Pages CRUD - .NET 6 Razor Pages Tutorial - ASP.NET Core Web App ;
 Link : https://youtu.be/3gthVb11Juc?si=HhhB_hwh0VIba1Jp ;
+Study : Self-Practice, Self-Study.
 
 
 # Website :
