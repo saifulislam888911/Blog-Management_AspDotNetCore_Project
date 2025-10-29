@@ -11,17 +11,19 @@ namespace Blog.Web.Pages.Admin.Blogs
         [BindProperty]
         public BlogPost BlogPost { get; set; }
 
-        private readonly IBlogPostRepository _blogPostRepository;
 
+        private readonly IBlogPostRepository _blogPostRepository;
         public EditModel(IBlogPostRepository blogPostRepository)
         {
             _blogPostRepository = blogPostRepository;
         }
 
+
         public async Task OnGet(Guid id)
         {
             BlogPost = await _blogPostRepository.GetAsync(id);
         }
+
 
         public async Task<IActionResult> OnPostEdit()
         {
@@ -34,6 +36,7 @@ namespace Blog.Web.Pages.Admin.Blogs
 
             return Page();
         }
+
 
         public async Task<IActionResult> OnPostDelete()
         {

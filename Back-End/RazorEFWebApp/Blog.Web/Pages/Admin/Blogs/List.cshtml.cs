@@ -11,12 +11,13 @@ namespace Blog.Web.Pages.Admin.Blogs
     {
         public List<BlogPost> BlogPosts { get; set; }
 
-        private readonly IBlogPostRepository _blogPostRepository;
 
+        private readonly IBlogPostRepository _blogPostRepository;
         public ListModel(IBlogPostRepository blogPostRepository)
         {
             _blogPostRepository = blogPostRepository;
         }
+
 
         public async Task OnGet()
         {

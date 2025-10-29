@@ -12,16 +12,18 @@ namespace Blog.Web.Pages.Admin.Blogs
         [BindProperty]
         public AddBlogPost AddBlogPostRequest { get; set; }
 
-        private readonly IBlogPostRepository _blogPostRepository;
 
+        private readonly IBlogPostRepository _blogPostRepository;
         public AddModel(IBlogPostRepository blogPostRepository)
         {
             _blogPostRepository = blogPostRepository;
         }
 
+
         public void OnGet()
         {
         }
+
 
         public async Task<IActionResult> OnPost()
         {
